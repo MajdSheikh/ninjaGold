@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <div class="address">
+      <h2>Your Gold: <input name="Gold" type="button" value="{{request.session.gold}}" class="input"> </h2>
+       
+    </div>
+    <div class="forms">
+      <div>
+        <form method="POST" action="/process_money" class="form">
+            {% csrf_token %}
+            <input type="hidden" value="Farm" name="action">
+          <h2>Farm</h2>
+          <p>(earns 10-20 gold)</p>
+          <input type="submit" value="Find Gold!">
+        </form>
+      </div>
+      <div>
+        <form method="POST" action="/process_money" class="form">
+            {% csrf_token %}
+            <input type="hidden" value="Cave" name="action">
+          <h2>Cave</h2>
+          <p>(earns 10-20 gold)</p>
+          <input type="submit" value="Find Gold!">
+        </form>
+      </div>
+      <div>
+        <form method="POST" action="/process_money" class="form">
+            {% csrf_token %}
+            <input type="hidden" value="House" name="action">
+          <h2>House</h2>
+          <p>(earns 10-20 gold)</p>
+          <input type="submit" value="Find Gold!">
+        </form>
+      </div>
+      <div>
+        <form method="POST" action="/process_money" class="form">
+            {% csrf_token %}
+            <input type="hidden" value="Quest" name="action">
+          <h2>Quest</h2>
+          <p>(earns/takes 0-50 gold)</p>
+          <input type="submit" value="Find Gold!">
+        </form>
+      </div>
+    </div>
+    <p class="activities">Activities:</p>
+    <div class="log"></div>
+  </body>
+</html>
